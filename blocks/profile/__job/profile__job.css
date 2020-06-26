@@ -1,0 +1,16 @@
+.profile__job {
+    grid-area: job;
+    margin: 0;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+    .profile__job {
+        font-size: 14px;
+    }
+}

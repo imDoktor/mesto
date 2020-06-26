@@ -1,0 +1,15 @@
+@import url(./__copirate/footer__copirate.css);
+
+.footer {
+    margin: 0 auto;
+    height: 144px;
+    width: 100%;
+    max-width: 882px;
+}
+
+@media screen and (max-width: 767px) {
+    .footer {
+        height: 98px;
+        padding-left: 19px;
+    }
+}

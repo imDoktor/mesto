@@ -1,0 +1,11 @@
+.popup__btn_save {
+    margin-top: 45px;
+    width: 358px;
+    height: 51px;
+    border: none;
+    border-radius: 2px;
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+}
