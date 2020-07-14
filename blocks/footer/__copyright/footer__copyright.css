@@ -1,5 +1,5 @@
-.footer__copirate {
-    margin:0;
+.footer__copyright {
+    margin: 0;
     padding-top: 66px;
     color: #545454;
     font-size: 18px;
@@ -7,8 +7,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .footer__copirate {
-        padding-top: 48px;
+    .footer__copyright {
         font-size: 14px;
     }
 }

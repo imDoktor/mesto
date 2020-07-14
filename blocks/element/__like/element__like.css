@@ -1,10 +1,16 @@
 .element__like {
+    outline: none;
+    border: none;
     width: 21px;
     height: 19px;
     background-image: url(../../../image/element/like.png);
     background-size: initial;
     background-position: center;
     background-repeat: no-repeat;
-    border: none;
-    background-color: white;
+    background-color: #fff;
+    transition: 0.4s;
+}
+
+.element__like:hover {
+    transform: scale(1.1);
 }

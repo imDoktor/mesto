@@ -1,15 +1,24 @@
-@import url(./__copirate/footer__copirate.css);
+
+@import url(./__copyright/footer__copyright.css);
 
 .footer {
     margin: 0 auto;
     height: 144px;
-    width: 100%;
-    max-width: 882px;
+    width: 882px;
+}
+
+@media screen and (max-width: 1023px) {
+    .footer {
+        width: 100%;
+        padding: 0 90px;
+        box-sizing: border-box;
+    }
 }
 
 @media screen and (max-width: 767px) {
     .footer {
+        padding: 0;
+        width: 282px;
         height: 98px;
-        padding-left: 19px;
     }
 }

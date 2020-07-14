@@ -1,23 +1,6 @@
 .root {
+    font-family: inter;
     margin: 0 auto;
-    padding: 0 199px;
     background-color: #000;
-}
-
-@media screen and (max-width: 767px) {
-    .root{
-        padding: 0;
-    }
-}
-
-@media screen and (max-width: 1023px) {
-    .root{
-        padding: 0 50px;
-    }
-}
-
-@media screen and (max-width: 1279px) {
-    .root{
-        padding: 0 50px;
-    }
+    position: relative;
 }
