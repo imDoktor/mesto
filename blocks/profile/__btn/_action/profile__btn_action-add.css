@@ -1,4 +1,4 @@
-.profile__btn_add {
+.profile__btn_action-add {
     outline: none;
     margin-left: auto;
     width: 150px;
@@ -6,26 +6,27 @@
     border-radius: 2px;
     border: 2px solid #fff;
     background-color: #000;
-    background-image: url(../../../image/profile/add_button.png);
+    background-image: url(../../../../image/profile/btn_add.svg);
     background-size: initial;
     background-position: center;
     background-repeat: no-repeat;
     transition: 0.4s;
+    cursor: pointer;
 }
 
-.profile__btn_add:hover {
-    transform: scale(1.09);
+.profile__btn_action-add:hover {
+    opacity: 0.6;
 }
 
 @media screen and (max-width: 1023px) {
-    .profile__btn_add {
+    .profile__btn_action-add {
         width: 50px;
         height: 50px;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .profile__btn_add {
+    .profile__btn_action-add {
         margin-top: 34px;
         width: 282px;
         height: 50px;

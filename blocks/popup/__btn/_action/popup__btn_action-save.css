@@ -1,4 +1,4 @@
-.popup__btn_save {
+.popup__btn_action-save {
     margin-top: 45px;
     outline: none;
     border: none;
@@ -10,14 +10,15 @@
     font-size: 18px;
     font-weight: 400;
     transition: 0.6s;
+    cursor: pointer;
 }
 
-.popup__btn_save:hover {
-    transform: scale(1.05);
+.popup__btn_action-save:hover {
+    opacity: 0.8;
 }
 
 @media screen and (max-width: 767px) {
-    .popup__btn_save {
+    .popup__btn_action-save {
         width: 100%;
     }
 }

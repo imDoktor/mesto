@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
 </head>
@@ -13,25 +12,25 @@
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form class="popup__form">
-                    <input type="text" class="popup__input popup__name" name="popupName">
-                    <input type="text" class="popup__input popup__job" name="popupJob">
-                    <button class="popup__btn_save">Сохранить</button>
+                    <input type="text" class="popup__input popup__input_value-name" name="popupName">
+                    <input type="text" class="popup__input popup__input_value-job" name="popupJob">
+                    <button class="popup__btn popup__btn_action-save">Сохранить</button>
                 </form>
-                <button class="popup__btn_close" type="button"></button>
+                <button class="popup__btn popup__btn_action-close" type="button"></button>
             </div> 
         </div>
         <header class="header">
-            <img src="./image/logo.png" alt="Лого" class="header__logo">
+            <img src="./image/Vector.svg" alt="Лого" class="header__logo">
         </header>
         <main class="main">
             <section class="profile">
                 <img src="./image/profile/Avatar.svg" alt="Аватар" class="profile__avatar">
                 <div class="profile__info">
-                    <p class="profile__name">Жак-Ив Кусто</p>
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <p class="profile__job">Исследователь океана</p>
-                    <button class="profile__btn_edit" type="button"></button>
+                    <button class="profile__btn profile__btn_action-edit" type="button"></button>
                 </div>
-                <button class="profile__btn_add" type="button"></button>
+                <button class="profile__btn profile__btn_action-add" type="button"></button>
             </section>
             <section class="elements">
                 <div class="element">
