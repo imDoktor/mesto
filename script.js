@@ -5,7 +5,6 @@ let popupName = document.querySelector('.popup__input_value-name');
 let popupJob = document.querySelector('.popup__input_value-job');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
-let btnSave = document.querySelector('.popup__btn_action-save');
 let formPopup = document.querySelector('.popup__form');
 
 function openedOrClose (){
@@ -17,7 +16,7 @@ function openedOrClose (){
         popupName.value = profileName.textContent;
         popupJob.value = profileJob.textContent; 
     }
-};
+}
 
 
 editBtn.addEventListener('click', openedOrClose);
