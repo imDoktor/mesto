@@ -136,6 +136,7 @@ function renderElemenBtnRemove (){
             let removedElement = item.closest('.element');
             removedElement.remove();
         });
+        renderBtnLike();
     })
 };
 renderElemenBtnRemove ();
