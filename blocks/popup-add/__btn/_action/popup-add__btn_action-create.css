@@ -1,0 +1,24 @@
+.popup-add__btn_action-create {
+    margin-top: 45px;
+    outline: none;
+    border: none;
+    width: 358px;
+    height: 51px;
+    border-radius: 2px;
+    background-color: #000;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    transition: 0.6s;
+    cursor: pointer;
+}
+
+.popup-add__btn_action-create:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 767px) {
+    .popup-add__btn_action-create {
+        width: 100%;
+    }
+}

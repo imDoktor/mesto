@@ -9,8 +9,13 @@
     background-repeat: no-repeat;
     background-color: #fff;
     transition: 0.4s;
+    cursor: pointer;
 }
 
 .element__like:hover {
     transform: scale(1.1);
+}
+
+.element__like_value-activ {
+    background-image: url(../../../image/element/like_active.svg);
 }
