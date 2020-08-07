@@ -3,7 +3,7 @@
     border: none;
     width: 21px;
     height: 19px;
-    background-image: url(../../../image/element/like.svg);
+    background-image: url(../../../images/element/like.svg);
     background-size: initial;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,5 +17,5 @@
 }
 
 .element__like_value-activ {
-    background-image: url(../../../image/element/like_active.svg);
+    background-image: url(../../../images/element/like_active.svg);
 }
