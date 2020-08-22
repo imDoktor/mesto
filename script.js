@@ -7,6 +7,8 @@ const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const formPopup = document.querySelector('.popup__form');
 
+
+
 const elements = document.querySelector('.elements');
 const element = document.querySelector('.element');
 
@@ -127,9 +129,10 @@ function formSubmitHandlerEdd (evt) {
 }
 
 editBtn.addEventListener('click', function (){
-    openedOrClose (popup);
     replaceNameAndJob ();
+    openedOrClose (popup);
 });
+
 btnClose.addEventListener('click', function (){
     openedOrClose (popup);
 });
@@ -143,4 +146,94 @@ popupAddBtnClose.addEventListener('click', function () {
 popupAddForm.addEventListener('submit', formSubmitHandlerEdd);
 popupImageBtnClose.addEventListener('click', function () {
     openedOrClose(popupImage);
+})
+
+const showInputError = (formElement, inputElement, errorMessage) => {
+    errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.add('popup__input_type_error');
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add('popup__input-error-active');
+}
+
+const hideInpuError = (formElement, inputElement) => {
+    errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+    inputElement.classList.remove('popup__input_type_error');
+    errorElement.textContent = '';
+    errorElement.classList.remove('popup__input-error-active');
+}
+
+const hasInvalidInput = (inputList) => {
+    return inputList.some((inputElement) => {
+        return !inputElement.validity.valid;
+    })
+}
+
+const checkInputValidity = (formElement, inputElement) => {
+    if(!inputElement.validity.valid){
+        showInputError(formElement, inputElement, inputElement.validationMessage);
+    }
+    else{
+        hideInpuError(formElement, inputElement);
+    }
+}
+
+const toggleButtonState = ((inputList, buttonElement) => {
+    if(hasInvalidInput(inputList)){
+        buttonElement.classList.add('popup__btn_inactive');
+    }
+    else{
+        buttonElement.classList.remove('popup__btn_inactive');
+    }
+})
+
+const setEventListeners = (formElement) => {
+    const inputList = Array.from(formElement.querySelectorAll('.popup__input'));
+    const buttonElement = formElement.querySelector('.form__submit');
+    toggleButtonState(inputList, buttonElement);
+
+    inputList.forEach((inputElement) => {
+        inputElement.addEventListener('input', function () {
+            checkInputValidity(formElement, inputElement);
+            toggleButtonState(inputList, buttonElement);
+        })
+        
+    })
+
+}
+
+const enableValidation = () => {
+    const formList = Array.from(document.querySelectorAll('.popup__form'));
+    formList.forEach((formElement) =>{
+        formElement.addEventListener('submit', function (evt) {
+            evt.preventDefault();
+        })
+
+    const fieldsetList = Array.from(formElement.querySelectorAll('.popup__set'));
+    fieldsetList.forEach((fieldset) => {
+        setEventListeners(fieldset);
+    })
+    })
+}
+
+enableValidation();
+
+const owerlayList = document.querySelectorAll('.popup__owerlay');
+
+
+const owerlayListeners = (() => {
+    const owerlayArr = Array.from(owerlayList);
+    owerlayArr.forEach((item) => {
+        item.addEventListener('click', function (evt) {
+            openedOrClose(evt.target.parentNode);
+        })
+    })
+})
+
+owerlayListeners();
+
+document.addEventListener('keydown', function (evt) {
+    if(evt.key === 'Escape'){
+        const openedPopup = document.querySelector('.popup_opened')
+        openedPopup.classList.remove('popup_opened')
+    }
 })

@@ -1,0 +1,10 @@
+.popup__owerlay{
+    z-index: 1;
+    width: 100%;
+    min-height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

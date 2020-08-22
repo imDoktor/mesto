@@ -2,8 +2,8 @@
     margin-top: 50px;
 }
 
-.popup-add__form :nth-child(2) {
-    margin-top: 27px;
+.popup-add__form :first-child {
+    margin-top: 0;
 }
 
 @media screen and (max-width: 767px) {
