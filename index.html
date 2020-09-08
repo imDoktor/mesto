@@ -8,7 +8,7 @@
 </head>
 <body class="body">
     <div class="root">
-        <div class="popup">
+        <div class="popup popup-edit">
             <div class="popup__owerlay"></div>
                 <div class="popup__container">
                     <h2 class="popup__title">Редактировать профиль</h2>
@@ -46,15 +46,15 @@
                         <button class="popup__btn popup__btn_inactive form__submit popup-add__btn_action-create">Создать</button>
                     </fieldset>
                 </form>
-                <button class="popup__btn popup-add__btn_action-close" type="button"></button>
+                <button class="popup__btn popup-add__btn_action-close popup__btn_action-close" type="button"></button>
             </div> 
         </div>
         <div class="popup popup-img">
             <div class="popup__owerlay"></div>
             <div class="popup-img__container">
-                <img src="" alt="" class="popup-img__image">
+                <img src="#" alt="" class="popup-img__image">
                 <p class="popup-img__title"></p>
-                <button class="popup__btn popup-img__btn_action-close" type="button"></button>
+                <button class="popup__btn popup-img__btn_action-close popup__btn_action-close" type="button"></button>
             </div>
         </div>
         <header class="header">
@@ -87,7 +87,6 @@
             <button class="element__remove" type="button"></button>
         </div>
     </template>
-    <script src="./script.js"></script>
-    <script src="./js/validate.js"></script>
+    <script type="module" src="./js/index.js"></script>
 </body>
 </html>
