@@ -1,5 +1,6 @@
 export {Card};
 
+const popupImage = document.querySelector('.popup-img');
 class Card {
     constructor(data, cardSelector) {
         this._name = data.name;
@@ -15,8 +16,10 @@ class Card {
     generateCard() {
         this._element = this._getTemplate();
         this._setEventListeners();
-        this._element.querySelector('.element__text').textContent = this._name;;
-        this._element.querySelector('.element__img').src = this._link;
+        this._element.querySelector('.element__text').textContent = this._name;
+        const elementImg = this._element.querySelector('.element__img');
+        elementImg.src = this._link;
+        elementImg.alt = this._name;
         return this._element;
     }
 
@@ -44,5 +47,6 @@ class Card {
 
     _removeCard(){
         this._element.remove();
+        this._element = null;
     }
 }
