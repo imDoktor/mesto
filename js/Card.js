@@ -1,4 +1,6 @@
 export {Card};
+import {openOrClosePopup} from './index.js';
+
 
 const popupImage = document.querySelector('.popup-img');
 class Card {
@@ -38,7 +40,7 @@ class Card {
     _openImage(){
         popupImage.querySelector('.popup-img__image').src = this._link;
         popupImage.querySelector('.popup-img__title').textContent = this._name;
-        popupImage.classList.toggle('popup_opened');
+        openOrClosePopup(popupImage);
     }
 
     _like(){

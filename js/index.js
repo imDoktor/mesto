@@ -1,6 +1,8 @@
 import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js';
 import {initialCards} from './constants.js';
+export {openOrClosePopup};
+
 
 const editBtn = document.querySelector('.profile__btn_action-edit');
 const addBtn = document.querySelector('.profile__btn_action-add');
@@ -15,6 +17,8 @@ const btnCreatePopupAdd = document.querySelector('.popup-add__btn_action-create'
 const owerlayList = document.querySelectorAll('.popup__owerlay');
 const popupEdit = document.querySelector('.popup-edit');
 const popupAdd = document.querySelector('.popup-add');
+const elements = document.querySelector('.elements');
+
 
 const initValidation = {
     formSelector: '.popup__form',
@@ -38,7 +42,7 @@ allForm.forEach((formElement) => {
 initialCards.forEach((item) => {
     const card = new Card (item, '.element_temp');
     const cardElement = card.generateCard();
-    document.querySelector('.elements').append(cardElement);
+    elements.append(cardElement);
 })
 
 const allBtnClosePopup = Array.from(document.querySelectorAll('.popup__btn_action-close'));
@@ -111,7 +115,7 @@ const createNewCard = () => {
     }
     const card = new Card (cardObject, '.element_temp');
     const cardElement = card.generateCard();
-    document.querySelector('.elements').prepend(cardElement);
+    elements.prepend(cardElement);
 }
 
 btnCreatePopupAdd.addEventListener('click', function(evt){
@@ -123,7 +127,7 @@ const owerlayListeners = (() => {
     const owerlayArr = Array.from(owerlayList);
     owerlayArr.forEach((item) => {
         item.addEventListener('click', function (evt) {
-            openOrClosePopup(evt.target);
+            openOrClosePopup(evt.target.closest('.popup'));
         })
     })
 })
