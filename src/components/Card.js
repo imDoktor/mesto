@@ -1,13 +1,13 @@
 export {Card};
-import {openOrClosePopup} from './index.js';
 
 
 const popupImage = document.querySelector('.popup-img');
 class Card {
-    constructor(data, cardSelector) {
+    constructor({data, handleCardClick}, cardSelector) {
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
     }
     _getTemplate() {
         const cardElement = document.querySelector(this._cardSelector).content.querySelector('.element').cloneNode(true);
@@ -26,21 +26,13 @@ class Card {
     }
 
     _setEventListeners() {
-        this._element.querySelector('.element__img').addEventListener('click', () => {
-            this._openImage();
-        })
+        this._element.querySelector('.element__img').addEventListener('click', this._handleCardClick)
         this._element.querySelector('.element__like').addEventListener('click', () => {
             this._like();
         })
         this._element.querySelector('.element__remove').addEventListener('click', () => {
             this._removeCard();
         })
-    }
-
-    _openImage(){
-        popupImage.querySelector('.popup-img__image').src = this._link;
-        popupImage.querySelector('.popup-img__title').textContent = this._name;
-        openOrClosePopup(popupImage);
     }
 
     _like(){
