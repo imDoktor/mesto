@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: './src/pages/index.js',
-  mode: 'production',
+  mode: 'development',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
@@ -22,13 +22,13 @@ module.exports = {
         }
       },
       {
-        test: /\.(png|jpe?g|gif|woff2|svg|woff)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
-      },
+        test: /.(png|svg|jpg|gif)$/,
+        loader: 'file-loader?name=./images/[name].[ext]'
+    },
+    {
+        test: /.(eot|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=./vendor/[name].[ext]',
+    },
       {
         test: /\.css$/i,
         use: [
@@ -47,7 +47,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-    template: './src/imdex.html'
+    template: './src/index.html'
     }),
     new MiniCssExtractPlugin(),
   ]

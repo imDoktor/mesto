@@ -6,9 +6,9 @@ class PopupWithForm extends Popup {
         super(popupSelector);
         this.callback = callback;
         this._inputList = this._popup.querySelectorAll('.popup__input');
+        this._formReset = this._popup.querySelector('.popup__form');
     }
     _getInputValues(){
-        this._inputList = this._popup.querySelectorAll('.popup__input');
         this._formValues = {};
         this._inputList.forEach(input => {
           this._formValues[input.name] = input.value;
@@ -20,20 +20,19 @@ class PopupWithForm extends Popup {
     setEventListeners (){
         this._popup.querySelector('.form__submit').addEventListener('click', () => {
             this.callback(this._getInputValues());
-            this.close();
         });
         super.setEventListeners();
     }
-    replaceInputValue(object){
-        this._popup.querySelector('.popup__input_value-name').value = object.name;
-        this._popup.querySelector('.popup__input_value-job').value = object.info;
+    replaceInputValue(fields){
+        fields.forEach(field => {
+            this._popup.querySelector(field.selector).value = field.value;
+        })
     }
     open(){
         super.open();
     }
     close () {
-        const formReset = this._popup.querySelector('.popup__form');
-        formReset.reset();
+        this._formReset.reset();
         super.close();
     }
 }

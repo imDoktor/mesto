@@ -1,8 +1,4 @@
-export {Card};
-
-
-const popupImage = document.querySelector('.popup-img');
-class Card {
+export class Card {
     constructor({data, handleCardClick}, cardSelector) {
         this._name = data.name;
         this._link = data.link;

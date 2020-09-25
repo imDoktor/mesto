@@ -1,4 +1,4 @@
-import './index.css';
+import {index} from './index.css';
 import {Card} from '../components/Card.js';
 import {FormValidator} from '../components/FormValidator.js';
 import {initialCards, addBtn, editBtn, owerlayList, initValidation} from '../utils/constants.js';
@@ -15,23 +15,21 @@ allForm.forEach((formElement) => {
 
 const popupWithImage = new PopupWithImage('.popup-img');
 
+function createCard (element) {
+    const card = new Card({
+        data: element,
+        handleCardClick: () => {
+            popupWithImage.open(element.name, element.link);
+        }}, '.element_temp');
+    const cardElement = card.generateCard();
+    cardList.addItem(cardElement);
+}
+
+
 const formAdd = new PopupWithForm ('.popup-add', 
     function callback (element){
-        const items =[element];
-        const cardList = new Section({
-            data : items,
-            renderer: (item) => {
-                const card = new Card({
-                    data: item,
-                    handleCardClick: () => {
-                        popupWithImage.open(item.name, item.link);
-                    }}, '.element_temp');
-                const cardElement = card.generateCard();
-                cardList.addItem(cardElement);
-            }
-        }, cardListSelector);
-        
-        cardList.renderItems();
+        createCard(element);
+        this.close();
     }
 )
 formAdd.setEventListeners();
@@ -45,39 +43,23 @@ const userInfo = new UserInfo ({name: '.profile__name', info: '.profile__job'});
 const formEdit = new PopupWithForm ('.popup-edit',
     function callback (element) {
         userInfo.setUserInfo(element);
+        this.close();
     }
 )
 formEdit.setEventListeners();
 
 editBtn.addEventListener('click', function() {
-    formEdit.replaceInputValue(userInfo.getUserInfo());
+    const fields = userInfo.getUserInfo();
+    const fieldsWithSelectors = [{selector: '.popup__input_value-name', value: fields.name}, 
+        {selector: '.popup__input_value-job', value: fields.info}]
+    formEdit.replaceInputValue(fieldsWithSelectors);
     formEdit.open();
 })
 
 const cardListSelector = '.elements';
 const cardList = new Section({
-    data : initialCards,
-    renderer: (item) => {
-        const card = new Card({
-            data: item,
-            handleCardClick: () => {
-                popupWithImage.open(item.name, item.link);
-            }}, '.element_temp');
-        const cardElement = card.generateCard();
-        cardList.addItem(cardElement);
-    }
+    data : initialCards.reverse(),
+    renderer: (item) => {createCard (item);}
 }, cardListSelector);
 
 cardList.renderItems();
-
-const owerlayListeners = (() => {
-    const owerlayArr = Array.from(owerlayList);
-    owerlayArr.forEach((item) => {
-        item.addEventListener('click', function (evt) {
-            openOrClosePopup(evt.target.closest('.popup'));
-        })
-    })
-})
-
-owerlayListeners();
-

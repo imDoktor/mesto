@@ -10,7 +10,7 @@ class Popup {
         document.addEventListener('keydown', this._handleEscClose);
     }
     close(){
-        this._popup.classList.remove('popup_opened');;
+        this._popup.classList.remove('popup_opened');
         document.removeEventListener('keydown', this._handleEscClose);
     }
     _handleEscClose = (evt) => {
@@ -20,6 +20,9 @@ class Popup {
     }
     setEventListeners () {
         this._popup.querySelector('.popup__btn_action-close').addEventListener('click', () => {
+            this.close();
+        });
+        this._popup.querySelector('.popup__owerlay').addEventListener('click', () => {
             this.close();
         });
     }
