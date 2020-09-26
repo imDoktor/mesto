@@ -1,5 +1,3 @@
-export {initialCards, addBtn, editBtn, owerlayList, initValidation};
-
 const initialCards = [
     {
         name: 'Архыз',
@@ -41,3 +39,5 @@ const initValidation = {
     inputError: 'popup__input_type_error',
     inputErrorActive: 'popup__input-error-active'
 }
+
+export {initialCards, addBtn, editBtn, owerlayList, initValidation};

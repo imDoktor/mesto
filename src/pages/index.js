@@ -29,12 +29,14 @@ function createCard (element) {
 const formAdd = new PopupWithForm ('.popup-add', 
     function callback (element){
         createCard(element);
-        this.close();
+        formAdd.close();
     }
 )
 formAdd.setEventListeners();
 
 addBtn.addEventListener('click', function(){
+    formAdd._buttonSubmit.disabled = true;
+    formAdd._buttonSubmit.classList.add('popup__btn_inactive');
     formAdd.open();
 });
 
@@ -43,7 +45,7 @@ const userInfo = new UserInfo ({name: '.profile__name', info: '.profile__job'});
 const formEdit = new PopupWithForm ('.popup-edit',
     function callback (element) {
         userInfo.setUserInfo(element);
-        this.close();
+        formEdit.close();
     }
 )
 formEdit.setEventListeners();
