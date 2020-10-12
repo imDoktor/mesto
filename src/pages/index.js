@@ -1,7 +1,7 @@
-import './index.css';
+import './index.css'
 import {Card} from '../components/Card.js';
 import {FormValidator} from '../components/FormValidator.js';
-import {addBtn, avatar, editBtn, owerlayList, initValidation} from '../utils/constants.js';
+import {avatar, addBtn, editBtn, cardListSelector, initValidation} from '../utils/constants.js';
 import {Section} from '../components/Section.js';
 import {PopupWithImage} from '../components/PopupWithImage.js';
 import {PopupWithForm} from '../components/PopupWithForm.js';
@@ -16,18 +16,16 @@ const api = new Api({
     }
 })
 
-const cardListSelector = '.elements';
-api.getUserInfo().then((res) => {
-        avatar.querySelector('.profile__avatar-img').src = res.avatar;
-        userInfo.setUserInfo(res)
-})
-.catch((err) => {
-    console.log(err);
-}); 
+Promise.all([
+    api.getUserInfo(),
+    api.getCards()
+])
+.then(([userData, initialCards]) => {
+    avatar.querySelector('.profile__avatar-img').src = userData.avatar;
+    userInfo.setUserInfo(userData);
 
-api.getCards().then((res) => {
     const cardList = new Section({
-        data : res.reverse(),
+        data : initialCards.reverse(),
         renderer: (item) => {cardList.addItem(createCard (item));}
         }, cardListSelector);
     
@@ -67,8 +65,9 @@ api.getCards().then((res) => {
 
 })
 .catch((err) => {
-    console.log(err);
-  }); 
+    console.log(err)
+})
+
 
 const allForm = Array.from(document.querySelectorAll('.popup__form'));
 allForm.forEach((formElement) => {
@@ -77,9 +76,7 @@ allForm.forEach((formElement) => {
 })
 
 const popupWithImage = new PopupWithImage('.popup-img');
-
 const userInfo = new UserInfo ({name: '.profile__name', info: '.profile__job'});
-
 const formEdit = new PopupWithForm ('.popup-edit',{
     callback: (element) => {
         api.pacthUserInfo(element).then((res) => {

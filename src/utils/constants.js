@@ -2,7 +2,7 @@ const myId = '619f0f4394be17348efc17df';
 const avatar = document.querySelector('.profile__avatar');
 const addBtn = document.querySelector('.profile__btn_action-add');
 const editBtn = document.querySelector('.profile__btn_action-edit');
-const owerlayList = document.querySelectorAll('.popup__owerlay');
+const cardListSelector = '.elements';
 const initValidation = {
     formSelector: '.popup__form',
     setSelector: '.popup__set',
@@ -15,4 +15,4 @@ const initValidation = {
     inputErrorActive: 'popup__input-error-active'
 }
 
-export {myId, avatar, addBtn, editBtn, owerlayList, initValidation};
+export {myId, avatar, addBtn, editBtn, cardListSelector, initValidation};
