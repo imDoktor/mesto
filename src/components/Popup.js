@@ -1,6 +1,7 @@
 export class Popup {
     constructor (popupSelector) {
         this._popup = document.querySelector(popupSelector);
+        this._buttonSubmit = this._popup.querySelector('.form__submit');
     }
 
     open(){
@@ -23,5 +24,13 @@ export class Popup {
         this._popup.querySelector('.popup__owerlay').addEventListener('click', () => {
             this.close();
         });
+    }
+    renderLoading(isLoading, text){
+        if(isLoading){
+            this._buttonSubmit.textContent = 'Сохранение...'
+        }
+        else{
+            this._buttonSubmit.textContent = text;
+        }
     }
 }

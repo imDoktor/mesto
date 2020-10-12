@@ -1,30 +1,5 @@
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-
+const myId = '619f0f4394be17348efc17df';
+const avatar = document.querySelector('.profile__avatar');
 const addBtn = document.querySelector('.profile__btn_action-add');
 const editBtn = document.querySelector('.profile__btn_action-edit');
 const owerlayList = document.querySelectorAll('.popup__owerlay');
@@ -40,4 +15,4 @@ const initValidation = {
     inputErrorActive: 'popup__input-error-active'
 }
 
-export {initialCards, addBtn, editBtn, owerlayList, initValidation};
+export {myId, avatar, addBtn, editBtn, owerlayList, initValidation};

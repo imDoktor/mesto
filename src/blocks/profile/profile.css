@@ -4,6 +4,8 @@
 @import url(./__job/profile__job.css);
 @import url(./__btn/_action/profile__btn_action-edit.css);
 @import url(./__btn/_action/profile__btn_action-add.css);
+@import url(./__avatar/profile__avatar-img.css);
+@import url(./__avatar/profile__avatar-edit.css);
 
 .profile {
     margin: 38px auto 0;
